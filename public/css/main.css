@@ -1,0 +1,45 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {overflow-x: hidden;width:100%;}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.insider {
+    text-align: center;
+    margin: 40px;
+}
+
+.insider h1 {
+    color: #00ff00;
+}
+
+#todo {
+    margin-top: 25px;
+}
+
+#todo tr {
+    text-align: left;
+}

@@ -1,0 +1,36 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+add_customer:
+    path: /customers/add
+    controller: App\Controller\CustomerController::add
+
+get_one_customer:
+    path: /customers/{id}
+    controller: App\Controller\CustomerController::get
+    methods: [GET]
+
+get_all_customers:
+    path: /customers
+    controller: App\Controller\CustomerController::getAll
+
+update_customer:
+    path: /customers/{id}
+    controller: App\Controller\CustomerController::update
+    methods: [PUT]
+
+delete_customer:
+    path: /customers/{id}
+    controller: App\Controller\CustomerController::delete
+    methods: [DELETE]
+
+all_customer:
+    path: /customer
+    controller: App\Controller\CustomerController::index
+    methods: [GET]
+
+customer_edit:
+    path: /customer/edit/{id}
+    controller: App\Controller\CustomerController::edit
+   # methods: [GET]

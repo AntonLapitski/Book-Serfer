@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CustomerController!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="insider">
+            <h1>TODO with Auth</h1>
+            <table id="todo" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>PhoneNumber</th>
+                    <th>Action Edit</th>
+                    <th>Action Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for customer in customers %}
+                <tr>
+                        <td>{{ customer.id|e }}</td>
+                        <td>{{ customer.firstName|e }}</td>
+                        <td>{{ customer.lastName|e }}</td>
+                        <td>{{ customer.email|e }}</td>
+                        <td>{{ customer.phoneNumber|e }}</td>
+                        <td>
+                            <a class="btn btn-danger" href="{{ path('customer_edit', {id: customer.id}) }}">Edit
+                            </a>
+                        </td>
+                        <td>
+                            <form action="{{ path('delete_customer', {id: customer.id}) }}" method="POST">
+                                <input type="hidden" name="_method" value="Delete">
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                                <input type="hidden" name="token" value="{{ csrf_token('delete-item') }}"/>
+                            </form>
+                        </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
